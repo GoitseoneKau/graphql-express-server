@@ -1,0 +1,73 @@
+/* You can add global styles to this file, and also import other style files */
+$purple: #8a4d76;
+$brown: #757763;
+$beige-light: #d0d1cd;
+$beige-lighter: #eff0eb;
+$custom-green : hsl(153, 53%, 53%);
+
+// Path to Bulma's sass folder
+@use "bulma/sass" with (
+  $grey-dark: $brown,
+  $grey-light: $beige-light,
+  $primary: $custom-green,
+  $success: $custom-green,
+  $control-border-width: 2px,
+  $input-shadow: none
+);
+
+// Position-specific utility classes with CSS custom properties
+$position-types: ("absolute": "absolute", "fixed": "fixed", "relative": "relative", "sticky": "sticky");
+$directions: ("top": "top", "right": "right", "bottom": "bottom", "left": "left");
+$direction-shortcuts: ("t": "top", "r": "right", "b": "bottom", "l": "left");
+
+// Generate position type classes
+@each $type-name, $type-value in $position-types {
+    .is-#{$type-name} {
+        position: #{$type-value}!important;
+    }
+}
+
+// Generate directional position classes (e.g., .pos-top, .pos-right, etc.)
+@each $direction-name, $direction-prop in $directions {
+    .pos-#{$direction-name} {
+        #{$direction-prop}: var(--pos-#{$direction-name}, 0)!important;
+    }
+}
+
+// Generate shorthand directional classes (e.g., .pt, .pr, .pb, .pl)
+@each $shortcut, $direction-prop in $direction-shortcuts {
+    .p#{$shortcut} {
+        #{$direction-prop}: var(--p#{$shortcut}, 0)!important;
+    }
+}
+
+// Combined position + direction classes (e.g., .pos-top-absolute)
+@each $type-name, $type-value in $position-types {
+    @each $direction-name, $direction-prop in $directions {
+        .pos-#{$direction-name}-#{$type-name} {
+            position: #{$type-value}!important;
+            #{$direction-prop}: var(--pos-#{$direction-name}, 0)!important;
+        }
+    }
+}
+
+
+
+// Helper classes
+.is-absolute {
+    position: absolute!important;
+}
+
+.is-fixed {
+    position: fixed!important;
+}
+
+.is-relative {
+    position: relative!important;
+}
+
+.is-sticky {
+    position: sticky!important;
+}
+
+

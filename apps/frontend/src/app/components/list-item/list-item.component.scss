@@ -1,0 +1,70 @@
+
+.list-item{
+    gap:1em;
+    width: 100%!important;
+  // background-color: hsla(153, 100%, 90%, 0.822);
+  border-bottom: 2px solid hsl(153, 88%, 44%);
+    >*:first-child{
+        width: 100%;
+        font-weight: 600;
+    }
+    span:has(input){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Hide the native checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  position: relative;
+}
+
+input[type="checkbox"] + label{
+    position: relative;
+    display: block;
+    height: 20px;
+    width: 20px;
+}
+
+/* Style the custom checkbox box */
+input[type="checkbox"] + label::before {
+      content: ''; /* Unicode checkmark */
+    display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  background-color: white;
+  border-radius: 4px;
+  vertical-align: middle;
+  position: absolute;
+}
+
+/* Style the checkmark when checked */
+input[type="checkbox"]:checked + label::before {
+  background-color: #08d43b;
+  border-color: #08d43b;
+}
+
+input[type="checkbox"]:checked + label::after {
+    display: inline-block;
+  content: '\2713'; /* Unicode checkmark */
+  position: absolute;
+  margin-top: -0.2em;
+  margin-left: 0.1em;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 800;
+
+}
+
+/* Focus style for accessibility */
+input[type="checkbox"]:focus-visible + label::before {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+button{
+  padding: 1em;
+}

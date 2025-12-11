@@ -1,0 +1,9 @@
+<div class="list-item is-flex is-align-items-center  p-2 mt-2 w-90">
+      <span class="p-1">{{todo()?.todo}}</span> 
+      <span class="icon-text  has-text-success p-1">
+        
+          <input (change)="checkTodo()" [ngModel]="todo()?.completed"  type="checkbox" name="completed" [id]=`completed-${todo()?._id}`  >
+          <label [for]=`completed-${todo()?._id}`></label>
+      </span> 
+      <button class=" has-text-danger "  (click)="deleteTodo()"><fa-icon [icon]="delete_icon"/></button>
+    </div>

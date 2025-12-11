@@ -1,0 +1,15 @@
+<form (submit)="addTodo(todoForm)" #todoForm="ngForm">
+    <h1 class="title">Add todo</h1>
+
+    <div class="control is-flex is-align-items-center p-1">
+        <label class="label" for="todo">Todo : </label>
+        <input [(ngModel)]="todo.todo" class="input" type="text" placeholder="My todo" id="todo" name="todo">
+    </div>
+
+    <label for="completed" class="checkbox  is-flex is-align-items-center p-1">
+        <span class="pr-2 label">Completed : </span>
+        <input [(ngModel)]="todo.completed" class="p-2 mb-2" type="checkbox" id="completed" name="completed">
+    </label>
+
+    <button class="button is-success " type="submit">Save</button>
+</form>

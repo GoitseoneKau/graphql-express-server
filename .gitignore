@@ -1,0 +1,45 @@
+node_modules
+apps/api/.env
+apps/api/node_modules
+apps/api/dist
+
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+apps/frontend/dist
+apps/frontend/tmp
+apps/frontend/out-tsc
+apps/frontend/bazel-out
+
+# Node
+apps/frontend/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+apps/frontend/.vscode/*
+apps/frontend/.history/*
+
+# Miscellaneous
+apps/frontend/.angular
+apps/frontend/.sass-cache
+apps/frontend/connect.lock
+apps/frontend/coverage
+apps/frontend/libpeerconnection.log
+apps/frontend/testem.log
+apps/frontend/typings
+apps/frontend/.editorconfig
+
+# System files
+.DS_Store
+Thumbs.db
+*.log

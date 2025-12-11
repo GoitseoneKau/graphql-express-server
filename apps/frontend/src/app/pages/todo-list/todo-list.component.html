@@ -1,0 +1,43 @@
+<!-- main -->
+<div
+  class="content is-flex is-flex-direction-column is-align-items-center py-6"
+>
+  <!-- hero -->
+  <h1 class="title is-1 has-text-success has-text-centered m-4">
+    MEAN Stackbuilt
+  </h1>
+
+  <div class="mean-label title is-1 has-text-success has-text-centered m-4">
+    @for(img of image();track $index){
+       <span>
+        <img src="{{img}}" height="100px" width="100px" alt=""/>
+      </span>
+    }
+  </div>
+
+  <!-- Add Todo -->
+  <Button class="button m-3 btn-add" (click)="gotoAdd()">
+    <fa-icon [icon]="plus_icon" />
+  </Button>
+
+  <!-- Todo List -->
+  <div class="todo-container content">
+    <div class="title is-2">My TodoList</div>
+    <div class="subtitle is-4">Everyday todo list</div>
+    <div class="buttons filter">
+      <button (click)="filter()" class="button"   [class.is-active]="statusFilter() === null">All</button>
+      <button (click)="filter(true)" class="button" [class.is-active]="statusFilter() === true">Complete</button>
+      <button (click)="filter(false)" class="button" [class.is-active]="statusFilter() === false">Incomplete</button>
+    </div>
+
+    @if(loading()){
+      <p>Loading....</p>
+    }@else{ 
+
+      @for (todo of todos(); track $index) {
+        <list-item [todo]="todo" (delete)="deleteTodo(todo)" (update_completed)="updateTodo($event)" />
+      } 
+
+    }
+  </div>
+</div>
